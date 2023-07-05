@@ -1,4 +1,4 @@
-module github.com/randomizedcoder/fluent-bit-go/output
+module github.com/randomizedcoder/fluent-bit-go
 
 go 1.20
 
