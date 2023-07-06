@@ -85,7 +85,7 @@ func GetRecord(dec *FLBDecoder) (ret int, ts interface{}, rec map[interface{}]in
 	t := slice.Index(0).Interface()
 	data := slice.Index(1)
 
-	if map_data, ok := data.Interface().(map[interface{}]interface{})
+	map_data, ok := data.Interface().(map[interface{}]interface{})
 	if !ok {
 		return -3, 0, nil
 	}
