@@ -56,13 +56,12 @@ func (f FLBTime) UpdateExt(dest interface{}, v interface{}) {
 }
 
 func NewDecoder(data unsafe.Pointer, length int) *FLBDecoder {
-	var b []byte
 
 	dec := new(FLBDecoder)
 	dec.handle = new(codec.MsgpackHandle)
 	dec.handle.SetBytesExt(reflect.TypeOf(FLBTime{}), 1, &FLBTime{})
 
-	b = C.GoBytes(data, C.int(length))
+	b := unsafe.Slice((*byte)(data), length)
 	dec.mpdec = codec.NewDecoderBytes(b, dec.handle)
 
 	return dec
